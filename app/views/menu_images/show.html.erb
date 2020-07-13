@@ -1,0 +1,16 @@
+
+<p>見本</p>
+<%= attachment_image_tag @menu_image, :image %>
+<p>メニュー名</p>
+<%= @menu_image.menu_title %>
+<p>紹介文</p>
+<%= @menu_image.introduction %>
+<% @menu_image.menu_comments.each do |menu_comment| %>
+	<%= menu_comment.comment %>
+	<%= link_to "削除", menu_image_menu_comment_path(menu_comment.menu_image, menu_comment), method: :delete %>
+<% end %>
+<%= @menu_image.menu_comments.count %>件コメント
+<%= form_for [@menu_image, @menu_comment] do |f| %>
+	<%= f.text_area :comment %>
+	<%= f.submit "送信する" %>
+<% end %>

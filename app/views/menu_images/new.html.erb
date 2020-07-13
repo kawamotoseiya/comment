@@ -1,0 +1,13 @@
+<%= form_for(@menu_image) do |f| %>
+	<% if @menu_image.errors.any? %>
+	<h2><%= @menu_image.errors.count %>件のエラーが発生しました。</h2>
+	<% end %>
+	<% @menu_image.errors.full_messages.each do |message| %>
+		<%= message %>
+	<% end %>
+	<%= f.attachment_field :image %>
+	<%= f.text_field :menu_title %>
+	<%= f.text_area :introduction %>
+	<%= f.submit "送信" %>
+<% end %>
+

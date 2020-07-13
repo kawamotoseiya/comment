@@ -1,0 +1,18 @@
+	<table>
+		<tr>
+			<th>見本</th>
+			<th>メニュ名</th>
+			<th>紹介</th>
+			<th></th>
+			<th></th>
+		</tr>
+		<% @menu_images.each do | menu_image| %>
+		<tr>
+			<td><%= attachment_image_tag menu_image, :image %></td>
+			<td><%= menu_image.menu_title %></td>
+			<td><%= menu_image.introduction %></td>
+			<td><%= link_to "詳細",menu_image_path(menu_image.id) %></td>
+			<td><%= menu_image.menu_comments.count %>件コメント</td>
+		</tr>
+		<% end %>
+	</table>
