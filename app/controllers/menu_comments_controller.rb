@@ -1,4 +1,5 @@
 class MenuCommentsController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		menu_image = MenuImage.find(params[:menu_image_id])
 		comment = MenuComment.new(menu_comment_params)

@@ -1,4 +1,5 @@
 class MenuImagesController < ApplicationController
+	before_action :authenticate_user!
 	def new
 		@menu_image = MenuImage.new
 	end
